@@ -22,9 +22,7 @@ Bu proje, canlı altın fiyatlarını web scraping ile `canlidoviz.com` üzerind
  ┣ Program.cs                → Uygulama giriş noktası
  ┗ AltınFiyatWeb SignalR.sln → Çözüm dosyası
 ```
-Projenin konsol ve çıktı görüntüsü. Basic bir arayüz tercih ettim. Amacım projeyi çalıştırmaktı.
-**🖼️ Projenin konsol ve çıktı görüntüsü**  
-**🧪 Basic bir arayüz tercih ettim. Amacım projeyi çalıştırmaktı.**
+
 ### 🖥️ Proje Konsol ve Çıktı Görüntüsü
 
 **Basic bir arayüz tercih ettim. Amacım projeyi çalıştırmaktı.**
