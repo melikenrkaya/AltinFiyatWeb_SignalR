@@ -8,9 +8,7 @@ Bu proje, canlı altın fiyatlarını web scraping ile `canlidoviz.com` üzerind
 - SignalR
 - HtmlAgilityPack (Scraper için)
 - Entity Framework Core
-- SQL Server
 - C#
-- JSON (DTO & Config)
 - JavaScript (clienthtmlpage.html)
 
 ## 📁 Katmanlar ve Klasörler
@@ -19,7 +17,6 @@ Bu proje, canlı altın fiyatlarını web scraping ile `canlidoviz.com` üzerind
 📦 AltinFiyatWeb_SignalR-main
  ┣ 📂Hubs                    → SignalR Hub (PriceHub.cs)
  ┣ 📂Services/Scraper        → Scraper & Job servisleri
- ┣ 📂Common                  → Extension sınıflar
  ┣ 📂wwwroot                 → Frontend HTML demo
  ┣ appsettings.json          → Config dosyası
  ┣ Program.cs                → Uygulama giriş noktası
