@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Gram Altın Takip</title>
+    <script src="https://cdn.jsdelivr.net/npm/@microsoft/signalr@7.0.5/dist/browser/signalr.min.js"></script>
+</head>
+<body>
+    <h2>Gram Altın</h2>
+    <p>Alış: <span id="alis">---</span></p>
+    <p>Satış: <span id="satis">---</span></p>
+
+    <script>
+        const connection = new signalR.HubConnectionBuilder()
+            .withUrl("http://localhost:5257/altinHub")
+            .configureLogging(signalR.LogLevel.Information)
+            .build();
+
+        connection.on("ReceivePrice", data => {
+            console.log("Fiyat geldi:", data); 
+            document.getElementById("alis").innerText = data.alis;
+            document.getElementById("satis").innerText = data.satis;
+        });
+
+        connection.start()
+            .then(() => console.log("Bağlantı başarılı"))
+            .catch(err => console.error("SignalR bağlantı hatası", err));
+    </script>
+</body>
+</html>
