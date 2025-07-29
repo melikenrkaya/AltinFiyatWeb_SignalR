@@ -57,4 +57,5 @@ Bu proje, canlı altın fiyatlarını web scraping ile `canlidoviz.com` üzerind
 
 Melikenur Kaya  
 [LinkedIn](https://linkedin.com/in/melikenur-kaya) • [GitHub](https://github.com/melikenrkaya)
+<img width="721" height="662" alt="image" src="https://github.com/user-attachments/assets/ce6801d1-3ecd-4af3-8c8e-c0842240d4fc" />
 
