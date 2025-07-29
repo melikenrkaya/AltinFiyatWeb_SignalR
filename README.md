@@ -22,6 +22,10 @@ Bu proje, canlı altın fiyatlarını web scraping ile `canlidoviz.com` üzerind
  ┣ Program.cs                → Uygulama giriş noktası
  ┗ AltınFiyatWeb SignalR.sln → Çözüm dosyası
 ```
+Projenin konsol ve çıktı görüntüsü. Basic bir arayüz tercih ettim. Amacım projeyi çalıştırmaktı.
+<img width="987" height="1060" alt="websignalr" src="https://github.com/user-attachments/assets/6bf566fa-b690-4e4b-b20f-7727d45c25a9" />
+
+<img width="721" height="662" alt="image" src="https://github.com/user-attachments/assets/ce6801d1-3ecd-4af3-8c8e-c0842240d4fc" />
 
 ## ⚙️ Kurulum
 
@@ -57,5 +61,5 @@ Bu proje, canlı altın fiyatlarını web scraping ile `canlidoviz.com` üzerind
 
 Melikenur Kaya  
 [LinkedIn](https://linkedin.com/in/melikenur-kaya) • [GitHub](https://github.com/melikenrkaya)
-<img width="721" height="662" alt="image" src="https://github.com/user-attachments/assets/ce6801d1-3ecd-4af3-8c8e-c0842240d4fc" />
+
 
