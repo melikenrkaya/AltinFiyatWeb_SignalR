@@ -17,13 +17,8 @@ Bu proje, canlı altın fiyatlarını web scraping ile `canlidoviz.com` üzerind
 
 ```
 📦 AltinFiyatWeb_SignalR-main
- ┣ 📂Controller              → Fiyat API kontrolü (PriceListController.cs)
  ┣ 📂Hubs                    → SignalR Hub (PriceHub.cs)
  ┣ 📂Services/Scraper        → Scraper & Job servisleri
- ┣ 📂Data
- ┃ ┣ 📂Context              → DbContext sınıfı
- ┃ ┣ 📂Entity               → Entity modelleri (PriceList.cs vs.)
- ┃ ┗ 📂Model                → DTO sınıfları
  ┣ 📂Common                  → Extension sınıflar
  ┣ 📂wwwroot                 → Frontend HTML demo
  ┣ appsettings.json          → Config dosyası
@@ -42,21 +37,7 @@ Bu proje, canlı altın fiyatlarını web scraping ile `canlidoviz.com` üzerind
    - `HtmlAgilityPack`
    - `Microsoft.AspNetCore.SignalR`
    - `Microsoft.EntityFrameworkCore.SqlServer`
-
-3. Veritabanı bağlantısını `appsettings.json` dosyasından yapın:
-   ```json
-   "ConnectionStrings": {
-     "DefaultConnection": "Server=.;Database=AltinFiyatDB;Trusted_Connection=True;"
-   }
-   ```
-
-4. Migration ve veritabanı oluşturun:
-   ```bash
-   dotnet ef migrations add InitialCreate
-   dotnet ef database update
-   ```
-
-5. Uygulamayı çalıştırın:
+3. Uygulamayı çalıştırın:
    ```bash
    dotnet run
    ```
