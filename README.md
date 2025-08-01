@@ -1,70 +1,127 @@
-# 🟡 Altın Fiyat Web (SignalR)
+Tamam, işte senin **WordToPdf & Video Downloader** projen için, senin istediğin gibi **düz, temiz ve Altın Fiyat Web örneği formatında** README:
 
-Bu proje, canlı altın fiyatlarını web scraping ile `canlidoviz.com` üzerinden çekip, SignalR kullanarak frontend'e gerçek zamanlı olarak ileten bir ASP.NET Core Web uygulamasıdır.
+---
+
+# 📄 Word to PDF & 🎥 Video Downloader API
+
+Bu proje, **Word belgelerini PDF formatına dönüştüren** ve **YouTube/desteklenen platformlardan video indiren** bir **ASP.NET Core Web API** uygulamasıdır.
+Videolar `yt-dlp` ile indirilir, **FFmpeg** ile H.264 + AAC formatında encode edilerek her oynatıcıda sorunsuz çalışır.
+
+---
 
 ## 🔧 Teknolojiler
 
-- ASP.NET Core Web API
-- SignalR
-- HtmlAgilityPack (Scraper için)
-- Entity Framework Core
-- C#
-- JavaScript (clienthtmlpage.html)
+* ASP.NET Core Web API
+* Swagger UI
+* Aspose.Words (Word → PDF dönüşümü)
+* yt-dlp (Video indirme aracı)
+* FFmpeg (Video/ses encode)
+* C#
+
+---
 
 ## 📁 Katmanlar ve Klasörler
 
 ```
-📦 AltinFiyatWeb_SignalR-main
- ┣ 📂Hubs                    → SignalR Hub (PriceHub.cs)
- ┣ 📂Services/Scraper        → Scraper & Job servisleri
- ┣ 📂wwwroot                 → Frontend HTML demo
- ┣ appsettings.json          → Config dosyası
- ┣ Program.cs                → Uygulama giriş noktası
- ┗ AltınFiyatWeb SignalR.sln → Çözüm dosyası
+📦 WordToPdf-And-YoutubeDownloadVideo
+ ┣ 📂Controllers        → API Controller dosyaları
+ ┣ 📂Downloads          → İndirilen videolar
+ ┣ 📂Properties         → Proje ayarları
+ ┣ appsettings.json     → Config dosyası
+ ┣ Program.cs           → Uygulama giriş noktası
+ ┗ WordToPdf.sln        → Çözüm dosyası
 ```
 
-### 🖥️ Proje Konsol ve Çıktı Görüntüsü
+---
 
-**Basic bir arayüz tercih ettim. Amacım projeyi çalıştırmaktı.**
+## 🖥️ Proje Konsol ve Çıktı Görüntüsü
 
+<img width="987" alt="swagger" src="https://github.com/user-attachments/assets/xxx" />
 
-<img width="987" height="1060" alt="websignalr" src="https://github.com/user-attachments/assets/6bf566fa-b690-4e4b-b20f-7727d45c25a9" />
+<img width="721" alt="download" src="https://github.com/user-attachments/assets/yyy" />
 
-<img width="721" height="662" alt="image" src="https://github.com/user-attachments/assets/ce6801d1-3ecd-4af3-8c8e-c0842240d4fc" />
+---
 
 ## ⚙️ Kurulum
 
 1. Projeyi klonlayın:
+
    ```bash
-   git clone https://github.com/kullanici/AltinFiyatWeb_SignalR.git
+   git clone https://github.com/KULLANICI_ADI/WordToPdf-And-YoutubeDownloadVideo.git
    ```
 
-2. NuGet paketlerini yükleyin:
-   - `HtmlAgilityPack`
-   - `Microsoft.AspNetCore.SignalR`
-   - `Microsoft.EntityFrameworkCore.SqlServer`
+2. Gerekli bağımlılıkları yükleyin:
+
+   * Aspose.Words
+   * yt-dlp.exe ve ffmpeg.exe dosyalarını proje kök klasörüne ekleyin
+   * Properties → Copy to Output Directory → Copy always
+
 3. Uygulamayı çalıştırın:
+
    ```bash
    dotnet run
    ```
 
-## 🔁 Gerçek Zamanlı Fiyat Yayını
+Tarayıcıda: **[http://localhost:5116/index.html](http://localhost:5116/index.html)**
 
-`AltinJobService` sınıfı, belirli aralıklarla scraping işlemi yapar. Eğer `alış` veya `satış` fiyatı bir önceki fiyattan farklıysa, `PriceHub` üzerinden SignalR yayını yapılır.
+---
 
-## 🧪 Demo
+## 📌 API Endpoint’leri
 
-`wwwroot/clienthtmlpage.html` dosyasını açarak fiyatların gerçek zamanlı nasıl aktığını izleyebilirsiniz.
+### 📄 Word → PDF
+
+```
+POST /Convert/WordToPdf
+```
+
+Form-Data:
+
+* `file` → Word dosyası (.docx, .doc)
+
+Dönüş: PDF dosyası yolu
+
+---
+
+### 🎥 Video İndir
+
+```
+POST /Convert/DownloadVideo
+```
+
+Body (JSON):
+
+```json
+{
+  "url": "https://www.youtube.com/watch?v=VIDEO_ID"
+}
+```
+
+Dönüş (JSON):
+
+```json
+{
+  "message": "Video başarıyla indirildi ve uyumlu MP4 formatına dönüştürüldü",
+  "filePath": "C:\\path\\to\\Downloads\\video.mp4",
+  "sizeMB": 123.45
+}
+```
+
+---
 
 ## 📌 Notlar
 
-- SignalR ile sadece değişen fiyatlar yayınlanır.
-- NullReferenceException hatalarına karşı `_lastAlis` ve `_lastSatis` gibi değişkenler dikkatle kontrol edilmelidir.
-- Fiyat bilgileri `AltinPriceScraper.cs` dosyasında `HtmlAgilityPack` ile çekilmektedir.
+* Büyük dosyaları (`*.mp4`, `*.exe`) `.gitignore` ile hariç tutun.
+* İndirme hızı internet bağlantınıza ve seçilen kaliteye göre değişebilir.
+* FFmpeg ve yt-dlp olmadan video indirme çalışmaz.
+
+---
 
 ## 👩‍💻 Geliştiren
 
-Melikenur Kaya  
+Melikenur Kaya
 [LinkedIn](https://linkedin.com/in/melikenur-kaya) • [GitHub](https://github.com/melikenrkaya)
 
+---
 
+Eğer istersen buradaki `<img>` linklerini **senin yüklediğin gerçek ekran görüntüleriyle** doldurabilirim ki GitHub’da birebir düzgün gözüksün.
+Onu da yapmamı ister misin?
